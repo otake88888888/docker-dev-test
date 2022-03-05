@@ -3,7 +3,7 @@ nodeapp:
   container_name: "nodeapp"
   working_dir: "/usr/src/app"
   ports:
-   - "10080:10080"
+   - "10081:10081"
   volumes:
    - "$PWD/app-server/src:/usr/src/app"
   links:
