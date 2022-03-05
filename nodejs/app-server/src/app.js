@@ -1,16 +1,3 @@
-const Redis = require("ioredis");
-const redis = new Redis("6379","noderedis");
-
-const redisTest = async () => {
-  await redis.set("key", "val");
-  const result = await redis.get("key");
-  console.log(result); //val
-
-  redis.disconnect();
-};
-
-// redisTest();
-
 const http = require("http");
 const port = 10081;
 
