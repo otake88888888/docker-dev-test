@@ -3,10 +3,3 @@ nodeapp:
   container_name: "nodeapp"
   ports:
    - "10081:10081"
-  links:
-   - "noderedis"
-noderedis:
-  image: "redis:latest"
-  ports: 
-    - 6379:6379
-  container_name: "noderedis"
