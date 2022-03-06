@@ -1,0 +1,14 @@
+# cat <<EOF > frontend-service-lb.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: nodeapp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 10081
+# EOF

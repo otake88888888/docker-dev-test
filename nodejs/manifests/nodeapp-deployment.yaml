@@ -1,0 +1,25 @@
+# $ nodeapp_repo=$(aws ecr describe-repositories --repository-names nodeapp --query 'repositories[0].repositoryUri' --output text)
+# cat <<EOF > nodeapp-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-deployment
+  namespace: frontend
+spec:
+  selector:
+    matchLabels:
+      app: nodeapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+      - name: nodeapp
+        image: ${nodeapp_repo}:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+
+# EOF
